@@ -42,11 +42,11 @@ class Form extends Component{
 			} else { // highlight invalid fields
 				// TODO: create field highlighter
 			}
+
+      return results.fields;
 		} else { // doesn't need validation, run the submit callback
       submit();
 		}
-
-		return validationResults.fields;
 	}
 
 	render() {

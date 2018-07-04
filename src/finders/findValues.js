@@ -1,4 +1,4 @@
-import findValueOfChildren from './findValuesOfChildren';
+import findValueOfChildren from './findValueOfChildren';
 
 const findValues = (requiredFields) => {
 	return requiredFields.map((item) => {
