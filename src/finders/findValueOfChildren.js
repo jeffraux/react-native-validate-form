@@ -1,12 +1,12 @@
-const findValueOfChildren = (child, fieldName) => {
-	if (!child.props.hasOwnProperty(fieldName)) {
+const findValueOfChildren = (child, validateFieldName) => {
+	if (!child.props.hasOwnProperty(validateFieldName)) {
 		if (child.props.children) {
 			if (child.props.children.length) {
 				child.props.children.map((item) => {
-					return findValueOfChildren(item, fieldName);
+					return findValueOfChildren(item, validateFieldName);
 				});
 			} else {
-				return findValueOfChildren(child.props.children, fieldName);
+				return findValueOfChildren(child.props.children, validateFieldName);
 			}
 		}
 	} else {

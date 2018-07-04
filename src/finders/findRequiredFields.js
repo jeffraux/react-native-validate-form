@@ -6,7 +6,7 @@ const findRequiredFields = (fields) => {
       requiredFields.push({
 				requiresValidation: true,
 				value: fields[i],
-				fieldName: fields[i].props.fieldName,
+				validateFieldName: fields[i].props.validateFieldName,
         validations: fields[i].props.validations
 			});
     }

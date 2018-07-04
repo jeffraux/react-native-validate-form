@@ -1,3 +1,9 @@
+//
+//  Created by: Jefferson Recto Aux
+//  MIT License
+//  (c) 2018
+//
+
 import React, { Component, createElement } from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
@@ -62,10 +68,10 @@ Form.propTypes = {
 
 Field.propTypes = {
 	required: PropTypes.bool,
-	regExp: PropTypes.object,
-	fieldName: PropTypes.string.isRequired,
+	validateFieldName: PropTypes.string.isRequired,
   style: PropTypes.any,
   validations: PropTypes.arrayOf(PropTypes.func),
+  component: PropTypes.func
 };
 
 Form.defaultProps = {
@@ -76,10 +82,10 @@ Form.defaultProps = {
 
 Field.defaultProps = {
 	required: false,
-	regExp: null,
-	fieldName: 'value',
+	validateFieldName: 'value',
   style: {},
-  validations: []
+  validations: [],
+  component: () => null
 };
 
 export { Field as Field, Form as Form }

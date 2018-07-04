@@ -3,7 +3,7 @@ const validateValues = (items) => {
 
   localItems.forEach(item => {
     if (item.requiresValidation) {
-      let value = item.props[item.fieldName];
+      let value = item.props[item.validateFieldName];
 
       if (!value) {
         item.isValid = false;
