@@ -41,22 +41,22 @@ You can pass these `props` to the Form and Field components:
 
 Props you can pass for the `<Form />` component
 
-|Name        |Type            |Default                       |Description                                           |
-|------------|----------------|------------------------------|------------------------------------------------------|
-|ref         |string          |null                          |reference name                                        |
-|validate    |boolean         |false                         |set this to `true` to enable validation               |
-|submit      |function        |() => null                    |function to execute if form is valid                  |
-|style       |object          |{}                            |style object                                          |
+|Name              |Type            |Default                         |Description                                                                                        |
+|------------------|----------------|--------------------------------|---------------------------------------------------------------------------------------------------|
+|ref               |string          |`null`                          |reference name                                                                                     |
+|validate          |boolean         |`false`                         |set this to `true` to enable validation                                                            |
+|submit            |function        |`() => null   `                 |function to execute if form is valid                                                               |
+|style             |object          |`{}`                            |style object                                                                                       |
 
 Props you can pass for the `<Field />` component
 
-|Name             |Type            |Default      |Description                                                 |
-|-----------------|----------------|-------------|------------------------------------------------------------|
-|required         |boolean         |false        |set this to `true` to require the field                     |
-|component        |component / func|null         |input component or any component that needs validation      |
-|validateFieldName|string          |'value'      |name of the prop that will be validated                     |
-|validations      |func / array    |[]           |function or array of functions that contains your validation|
-|style            |object          |{}           |style object                                                |
+|Name                   |Type                     |Default                         |Description                                                                          |
+|-----------------------|-------------------------|--------------------------------|-------------------------------------------------------------------------------------|
+|required               |boolean                  |`false`                         |set this to `true` to require the field                                              |
+|component              |component / func         |`null`                          |input component or any component that needs validation                               |
+|validateFieldName      |string                   |`'value'`                       |name of the prop that will be validated                                              |
+|validations            |func / array             |`[]`                            |function or array of functions that contains your validation                         |
+|style                  |object                   |`{}`                            |style object                                                                         |
 
 ## Credits
 
