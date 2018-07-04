@@ -1,0 +1,31 @@
+{
+  "name": "react-native-validate-form",
+  "version": "0.1.0",
+  "description": "Form validation for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auxcalibur/react-native-validate-form.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "form-validation",
+    "validate-form",
+    "validation",
+    "form"
+  ],
+  "author": "Jefferson Aux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/auxcalibur/react-native-validate-form/issues"
+  },
+  "homepage": "https://github.com/auxcalibur/react-native-validate-form#readme",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-native": "^0.55.4"
+  }
+}
