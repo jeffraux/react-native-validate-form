@@ -1,6 +1,6 @@
 {
   "name": "react-native-validate-form",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Form validation for React Native",
   "main": "src/index.js",
   "scripts": {
@@ -23,9 +23,5 @@
   "bugs": {
     "url": "https://github.com/auxcalibur/react-native-validate-form/issues"
   },
-  "homepage": "https://github.com/auxcalibur/react-native-validate-form#readme",
-  "dependencies": {
-    "react": "^16.4.1",
-    "react-native": "^0.55.4"
-  }
+  "homepage": "https://github.com/auxcalibur/react-native-validate-form#readme"
 }
