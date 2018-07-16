@@ -4,13 +4,13 @@
 //  (c) 2018
 //
 
-import React, { Component, createElement } from 'react';
+import React, { Component, Children, createElement, cloneElement } from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import validateForm from './validators/validateForm';
 
-class Field extends Component{
+class Field extends Component {
 	constructor(props) {
 		super(props);
   }
@@ -26,7 +26,7 @@ class Field extends Component{
   }
 }
 
-class Form extends Component{
+class Form extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -36,7 +36,7 @@ class Form extends Component{
 
     if (validate) { // validate the form
       let results = validateForm(children);
-      
+
 			if (results.isValid) { // run the submit callback if valid
 				submit();
 			} else { // highlight invalid fields
@@ -50,11 +50,15 @@ class Form extends Component{
 	}
 
 	render() {
-    const { style, children } = this.props;
+    const { style, children, errors } = this.props;
+
+    const childrenWithProps = Children.map(children, child =>
+      cloneElement(child, { errors: errors })
+    );
 
 		return(
 			<View style={style ? style : {}}>
-				{children}
+				{childrenWithProps}
 			</View>
 		);
 	}
@@ -70,7 +74,10 @@ Field.propTypes = {
 	required: PropTypes.bool,
 	validateFieldName: PropTypes.string.isRequired,
   style: PropTypes.any,
-  validations: PropTypes.arrayOf(PropTypes.func),
+  validations: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.arrayOf(PropTypes.func)
+  ]),
   component: PropTypes.func
 };
 
@@ -84,7 +91,7 @@ Field.defaultProps = {
 	required: false,
 	validateFieldName: 'value',
   style: {},
-  validations: [],
+  validations: () => null,
   component: () => null
 };
 

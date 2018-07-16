@@ -10,13 +10,25 @@ const validateValues = (items) => {
       } else {
         item.isValid = true;
       }
-      
-      if (item.validations.length) {
-        item.validations.forEach(item => {
-          item.isValid = item(value);
-        });
+
+      if (item.validations) {
+        if (typeof item.validations === 'function') {
+          if (item.validations(value)) {
+            item.error = item.validations(value);
+            item.isValid = false;
+          }
+        } else if (item.validations.length) {
+          item.error = "";
+  
+          item.validations.forEach(itm => {
+            if (itm(value)) {
+              item.error = itm(value);
+              item.isValid = false;
+            }
+          });
+        }
       }
-    } else { // Else - it is already valid
+    } else { // else - it is already valid
 			item.isValid = true;
 		}
   });
