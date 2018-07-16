@@ -15,11 +15,8 @@ import { Form, Field } from 'react-native-validate-form';
 
 ## Usage
 
-Simplest way to use:
-
-```js
-let sample = 'here';
-```
+NOTE: This project is still in its infancy stage.
+See [github documentation](https://github.com/auxcalibur/react-native-validate-form#readme) for more info.
 
 ## Options
 
