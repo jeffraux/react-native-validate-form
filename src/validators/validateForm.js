@@ -17,11 +17,22 @@ const validateForm = (fields) => {
   
   let values = findValues(requiredFields); // find all the values of all the required fields
   
-	let result = validateValues(values); // validate all the values accordingly
+  let result = validateValues(values); // validate all the values accordingly
+  
+  let validatedFields = [];
+
+  values.forEach(item => {
+    validatedFields.push({
+      requiresValidation: item.requiresValidation,
+      isValid: item.isValid,
+      fieldName: item.props.name
+    });
+  });
   
 	return {
 		isValid: validateAll(result),
-		fields: result
+		// fields: result
+		fields: validatedFields
 	};
 }
 
