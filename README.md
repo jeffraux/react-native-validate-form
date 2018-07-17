@@ -72,7 +72,7 @@ See [github documentation](https://github.com/auxcalibur/react-native-validate-f
   }
   ```
 
-  - InputField will represent your input field component, this component will receive the errors that will be throws by `this.myForm.validate()`.
+  - InputField will represent your input field component, this component will receive the errors that will be thrown by `this.myForm.validate()`.
 
   ```jsx
     TODO: sample input field
