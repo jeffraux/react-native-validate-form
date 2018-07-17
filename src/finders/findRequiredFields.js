@@ -1,17 +1,20 @@
-const findRequiredFields = (fields) => {
-	let requiredFields = [];
+import findFieldsOfChildren from './findFieldsOfChildren';
 
+const findRequiredFields = (fields) => {
+  let requiredFields = [];
+  
   fields.forEach(field => {
-    if (field.props.required) {
-      requiredFields.push({
-				requiresValidation: true,
-				value: field,
-				validateFieldName: field.props.validateFieldName,
-        validations: field.props.validations
-			});
+    let temp = findFieldsOfChildren(field, 'value');
+    
+    if (temp) {
+      if (temp.constructor === Array) {
+        requiredFields = [...temp, ...requiredFields];
+      } else {
+        requiredFields.push(temp);
+      }
     }
   });
-	
+  
 	return requiredFields;
 }
 

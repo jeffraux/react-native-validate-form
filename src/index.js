@@ -47,18 +47,34 @@ class Form extends Component {
 		} else { // doesn't need validation, run the submit callback
       submit();
 		}
-	}
+  }
+  
+  renderChildren = (element, errors) => {
+    if (element.props.children) {
+      if (element.props.children.length) {
+        let cwp = Children.map(element.props.children, child => {
+          return this.renderChildren(child, errors);
+        });
+
+        return cwp;
+      } else {
+        return this.renderChildren(element.props.children, errors);
+      }
+    } else {
+      return cloneElement(element, { errors: errors });
+    }
+  }
 
 	render() {
     const { style, children, errors } = this.props;
 
-    const childrenWithProps = Children.map(children, child =>
-      cloneElement(child, { errors: errors })
-    );
+    const childrenWithProps = Children.map(children, child => {
+      return cloneElement(child, { errors: errors });
+    });
 
 		return(
 			<View style={style ? style : {}}>
-				{childrenWithProps}
+        {childrenWithProps}
 			</View>
 		);
 	}

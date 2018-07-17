@@ -14,7 +14,7 @@ const validateForm = (fields) => {
   }
 
   let requiredFields = findRequiredFields(items); // find all fields that requires validation
-  
+
   let values = findValues(requiredFields); // find all the values of all the required fields
   
   let result = validateValues(values); // validate all the values accordingly
