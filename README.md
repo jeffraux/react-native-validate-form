@@ -18,6 +18,8 @@ import { Form, Field } from 'react-native-validate-form';
 NOTE: This project is still in its infancy stage.
 See [github documentation](https://github.com/auxcalibur/react-native-validate-form#readme) for more info.
 
+> **TODO**: make an example for better documentation
+
 ## Options
 
 You can pass these `props` to the Form and Field components:
