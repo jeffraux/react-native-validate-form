@@ -78,7 +78,7 @@ See [github documentation](https://github.com/auxcalibur/react-native-validate-f
     TODO: sample input field
   ```
 
-> **TODO**: make an examplein the repo for better documentation
+> **TODO**: make an example in the repo for better documentation
 
 ## Options
 
