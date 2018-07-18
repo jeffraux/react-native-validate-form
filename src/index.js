@@ -85,13 +85,14 @@ Form.propTypes = {
 	validate: PropTypes.bool,
 	submit: PropTypes.func,
 	failed: PropTypes.func,
+	errors: PropTypes.array,
   style: PropTypes.any
 };
 
 Field.propTypes = {
 	required: PropTypes.bool,
 	validateFieldName: PropTypes.string.isRequired,
-  style: PropTypes.any,
+  customStyle: PropTypes.any,
   validations: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.arrayOf(PropTypes.func)
@@ -102,14 +103,15 @@ Field.propTypes = {
 Form.defaultProps = {
 	validate: false,
 	submit: () => null,
-	failed: () => null,
+  failed: () => null,
+  errors: [],
 	style: {}
 }
 
 Field.defaultProps = {
 	required: false,
 	validateFieldName: 'value',
-  style: {},
+  customStyle: {},
   validations: () => null,
   component: () => null
 };
