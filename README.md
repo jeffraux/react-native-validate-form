@@ -5,7 +5,8 @@ A simple form validation for React Native
 
 #### NPM
 
-Install react-native-validate-form and its dependencies using NPM with:
+Install react-native-validate-form using NPM with:
+
 `npm install --save react-native-validate-form`
 
 ## Import
@@ -16,7 +17,6 @@ Install react-native-validate-form and its dependencies using NPM with:
 
 ## Usage
 
-NOTE: This project is still in its infancy stage.
 See [github documentation](https://github.com/jeffraux/react-native-validate-form#readme) for more info.
 
   ```jsx
