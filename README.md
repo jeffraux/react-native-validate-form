@@ -16,7 +16,7 @@ Install react-native-validate-form and its dependencies using NPM with `npm inst
 ## Usage
 
 NOTE: This project is still in its infancy stage.
-See [github documentation](https://github.com/auxcalibur/react-native-validate-form#readme) for more info.
+See [github documentation](https://github.com/jeffraux/react-native-validate-form#readme) for more info.
 
   ```jsx
   import React from 'react';
@@ -192,7 +192,7 @@ Props you can pass for the `<Field />` component
 
 ## Credits
 
-[Jefferson Aux](https://github.com/auxcalibur)
+[Jefferson Aux](https://github.com/jeffraux)
 
 ## License
 
