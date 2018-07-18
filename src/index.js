@@ -32,15 +32,15 @@ class Form extends Component {
 	}
 
 	validate() {
-    const { validate, submit, children } = this.props;
+    const { validate, submit, children, failed } = this.props;
 
     if (validate) { // validate the form
       let results = validateForm(children);
 
 			if (results.isValid) { // run the submit callback if valid
 				submit();
-			} else { // highlight invalid fields
-				// TODO: create field highlighter
+			} else { // run the faild callback if invalid
+				failed();
 			}
 
       return results.fields;
@@ -55,7 +55,7 @@ class Form extends Component {
         let cwp = Children.map(element.props.children, child => {
           return this.renderChildren(child, errors);
         });
-
+        
         return cwp;
       } else {
         return this.renderChildren(element.props.children, errors);
@@ -69,6 +69,7 @@ class Form extends Component {
     const { style, children, errors } = this.props;
 
     const childrenWithProps = Children.map(children, child => {
+      // return this.renderChildren(child, errors);
       return cloneElement(child, { errors: errors });
     });
 
@@ -83,6 +84,7 @@ class Form extends Component {
 Form.propTypes = {
 	validate: PropTypes.bool,
 	submit: PropTypes.func,
+	failed: PropTypes.func,
   style: PropTypes.any
 };
 
@@ -100,6 +102,7 @@ Field.propTypes = {
 Form.defaultProps = {
 	validate: false,
 	submit: () => null,
+	failed: () => null,
 	style: {}
 }
 

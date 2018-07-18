@@ -4,8 +4,8 @@ const findRequiredFields = (fields) => {
   let requiredFields = [];
   
   fields.forEach(field => {
-    let temp = findFieldsOfChildren(field, 'value');
-    
+    let temp = findFieldsOfChildren(field, 'value'); // get all required fields on nested components
+
     if (temp) {
       if (temp.constructor === Array) {
         requiredFields = [...temp, ...requiredFields];

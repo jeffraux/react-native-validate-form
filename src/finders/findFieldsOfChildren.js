@@ -1,12 +1,12 @@
 const findFieldsOfChildren = (child, validateFieldName) => {
   let fieldName = child.props.validateFieldName ? child.props.validateFieldName : validateFieldName;
 
-  if (!child.props.hasOwnProperty(fieldName)) {
+  if (!child.props.hasOwnProperty(fieldName)) { // check if the current child has the validateFieldName prop
 		if (child.props.children) {
-			if (child.props.children.length) {
+			if (child.props.children.length) { // check if the current child has multiple children
         let temp = [];
 
-				child.props.children.map((item) => {
+				child.props.children.map((item) => { // reiterate finding all required fields inside this child component
           let tempo = findFieldsOfChildren(item, fieldName);
           
           if (tempo) {
@@ -17,7 +17,7 @@ const findFieldsOfChildren = (child, validateFieldName) => {
             }
           }
         });
-
+        
         return temp;
 			} else {
 				return findFieldsOfChildren(child.props.children, fieldName);
