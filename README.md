@@ -75,7 +75,78 @@ See [github documentation](https://github.com/auxcalibur/react-native-validate-f
   - InputField will represent your input field component, this component will receive the errors that will be thrown by `this.myForm.validate()`.
 
   ```jsx
-    TODO: sample input field
+    import React from 'react';
+    import { TextInput, Text, View } from 'react-native';
+
+    const InputField = ({
+      name,           // field name - required
+      customStyle,
+      onChangeText,   // event
+      value,          // field value
+      disabled,
+      placeholder,
+      errors,         // this array prop is automatically passed down to this component from <Form />
+    }) => {
+      return (
+        <View>
+          <TextInput
+            value={value && value}
+            onChangeText={onChangeText ? (val) => onChangeText(val) : null}
+            placeholder={placeholder ? placeholder : ""}
+            disabled={disabled}
+            style={customStyle ? customStyle : {}}
+          />
+
+          { errors && errors.length > 0 && errors.map((item, index) =>
+              item.field === name && item.error ?
+                <Text style={{ color: 'red' }}>
+                  {item.error}
+                </Text>
+              : <View />
+            )
+          }
+        </View>
+      );
+    }
+
+    export default InputField;
+  ```
+
+  - If you have nested `<Field />` components, you need to explicitly pass down `errors` as props so you can display the errors accordingly.
+  - There's no need to pass down `errors` as props if your `<Field />` component is a direct child of `<Form />`.
+
+  ```jsx
+    // ...
+      <Form
+        ref={(ref) => this.myForm = ref}
+        validate={true}
+        submit={this.submitForm.bind(this)}
+        errors={this.state.errors} // you still need to pass errors as props to Form
+      >
+        <Field
+          required
+          component={InputField}
+          validations={[ required, email ]}
+          name="email"
+          value={this.state.email}
+          onChangeText={(val) => this.setState({ email: val })}
+          customStyle={{ width: 100 }}
+          // no need to pass down errors as props if <Field /> is a direct child of <Form />
+        />
+        <View>
+          <Field
+            required
+            component={InputField}
+            validations={[ required, email ]}
+            name="email"
+            value={this.state.email}
+            onChangeText={(val) => this.setState({ email: val })}
+            customStyle={{ width: 100 }}
+            errors={this.state.errors} // explicitly pass down errors as props if your <Field /> is inside an element
+          />
+        </View>
+      </Form>
+    // ...
   ```
 
 > **TODO**: make an example in the repo for better documentation
