@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/auxcalibur/react-native-validate-form.git"
+    "url": "git+https://github.com/jeffraux/react-native-validate-form.git"
   },
   "keywords": [
     "react",
@@ -21,7 +21,7 @@
   "author": "Jefferson Aux",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/auxcalibur/react-native-validate-form/issues"
+    "url": "https://github.com/jeffraux/react-native-validate-form/issues"
   },
-  "homepage": "https://github.com/auxcalibur/react-native-validate-form#readme"
+  "homepage": "https://github.com/jeffraux/react-native-validate-form#readme"
 }
