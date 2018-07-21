@@ -19,9 +19,9 @@ class Field extends Component {
     const { component } = this.props;
 
     return(
-      <View>
-				{createElement(component, { ...this.props, component: null })}
-      </View>
+	<View>
+		{createElement(component, { ...this.props, component: null })}
+	</View>
     );
   }
 }
