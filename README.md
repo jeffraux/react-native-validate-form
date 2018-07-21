@@ -21,7 +21,7 @@ See [github documentation](https://github.com/jeffraux/react-native-validate-for
 
   ```jsx
   import React from 'react';
-  import { View, Text } from 'react-native';
+  import { View, Text, TouchableOpacity } from 'react-native';
   import { Form, Field } from 'react-native-validate-form';
 
   import InputField from './InputField';
@@ -38,6 +38,7 @@ See [github documentation](https://github.com/jeffraux/react-native-validate-for
         email: ''
       }
     }
+
     submitForm() {
       let submitResults = this.myForm.validate();
 
@@ -52,22 +53,28 @@ See [github documentation](https://github.com/jeffraux/react-native-validate-for
 
     render() {
       return(
-        <Form
-          ref={(ref) => this.myForm = ref}
-          validate={true}
-          submit={this.submitForm.bind(this)}
-          errors={this.state.errors}
-        >
-          <Field
-            required
-            component={InputField}
-            validations={[ required, email ]}
-            name="email"
-            value={this.state.email}
-            onChangeText={(val) => this.setState({ email: val })}
-            customStyle={{ width: 100 }}
-          />
-        </Form>
+        <View>
+          <Form
+            ref={(ref) => this.myForm = ref}
+            validate={true}
+            submit={this.submitForm.bind(this)}
+            errors={this.state.errors}
+          >
+            <Field
+              required
+              component={InputField}
+              validations={[ required, email ]}
+              name="email"
+              value={this.state.email}
+              onChangeText={(val) => this.setState({ email: val })}
+              customStyle={{ width: 100 }}
+            />
+          </Form>
+
+          <TouchableOpacity onPress={this.submitForm.bind(this)}>
+            <Text>SUBMIT</Text>
+          </TouchableOpacity>
+        </View>
       );
     }
   }
@@ -170,7 +177,7 @@ You can pass these `props` to the Form and Field components:
   </Form>
   ```
 
-Props you can pass for the `<Form />` component
+Props you can pass to the `<Form />` component
 
 |Name                   |Type                     |Default               |Required       |Description                                                                          |
 |-----------------------|-------------------------|----------------------|---------------|-------------------------------------------------------------------------------------|
@@ -181,7 +188,7 @@ Props you can pass for the `<Form />` component
 |errors                 |array                    |`[]`                  |no             |array that contains all your field errors and messages                               |
 |style                  |object                   |`{}`                  |no             |style object                                                                         |
 
-Props you can pass for the `<Field />` component
+Props you can pass to the `<Field />` component
 
 |Name                   |Type                     |Default               |Required       |Description                                                                          |
 |-----------------------|-------------------------|----------------------|---------------|-------------------------------------------------------------------------------------|
