@@ -51,13 +51,22 @@ See [github documentation](https://github.com/jeffraux/react-native-validate-for
       this.setState({ errors: errors });
     }
 
+    submitSuccess() {
+      console.log("Submit Success!");
+    }
+
+    submitFailed() {
+      console.log("Submit Faield!");
+    }
+
     render() {
       return(
         <View>
           <Form
             ref={(ref) => this.myForm = ref}
             validate={true}
-            submit={this.submitForm.bind(this)}
+            submit={this.submitSuccess.bind(this)}
+            failed={this.submitFailed.bind(this)}
             errors={this.state.errors}
           >
             <Field
