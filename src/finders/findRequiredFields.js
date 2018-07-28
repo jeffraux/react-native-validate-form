@@ -15,7 +15,7 @@ const findRequiredFields = (fields) => {
     }
   });
   
-	return requiredFields;
+  return requiredFields;
 }
 
 export default findRequiredFields;

@@ -1,7 +1,7 @@
 const validateAll = (fields) => {
   let temp = true;
 
-	fields.forEach(item => {
+  fields.forEach(item => {
     if (!item.isValid) {
       temp = false;
     }
