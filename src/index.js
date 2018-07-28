@@ -19,9 +19,9 @@ class Field extends Component {
     const { component } = this.props;
 
     return(
-      <View>
-        {createElement(component, { ...this.props, component: null })}
-      </View>
+	    <View>
+		    {createElement(component, { ...this.props, component: null })}
+	    </View>
     );
   }
 }
@@ -32,16 +32,16 @@ class Form extends Component {
   }
 
 	validate() {
-    const { validate, submit, children, failed } = this.props;
+		const { validate, submit, children, failed } = this.props;
+    
+		if (validate) { // validate the form
+			let results = validateForm(children);
 
-    if (validate) { // validate the form
-      let results = validateForm(children);
-
-    if (results.isValid) { // run the submit callback if valid
-      submit();
-    } else { // run the faild callback if invalid
-      failed();
-    }
+      if (results.isValid) { // run the submit callback if valid
+        submit();
+      } else { // run the faild callback if invalid
+        failed();
+      }
 
       return results.fields;
     } else { // doesn't need validation, run the submit callback
@@ -49,21 +49,21 @@ class Form extends Component {
     }
   }
   
-  renderChildren = (element, errors) => {
-    if (element.props.children) {
-      if (element.props.children.length) {
-        let cwp = Children.map(element.props.children, child => {
-          return this.renderChildren(child, errors);
-        });
+	renderChildren = (element, errors) => {
+		if (element.props.children) {
+			if (element.props.children.length) {
+				let cwp = Children.map(element.props.children, child => {
+					return this.renderChildren(child, errors);
+				});
         
-        return cwp;
-      } else {
-        return this.renderChildren(element.props.children, errors);
-      }
-    } else {
-      return cloneElement(element, { errors: errors });
-    }
-  }
+				return cwp;
+			} else {
+				return this.renderChildren(element.props.children, errors);
+			}
+		} else {
+			return cloneElement(element, { errors: errors });
+		}
+	}
 
   render() {
     const { style, children, errors } = this.props;
@@ -92,12 +92,12 @@ Form.propTypes = {
 Field.propTypes = {
 	required: PropTypes.bool,
 	validateFieldName: PropTypes.string.isRequired,
-  customStyle: PropTypes.any,
-  validations: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.arrayOf(PropTypes.func)
-  ]),
-  component: PropTypes.func
+	customStyle: PropTypes.any,
+	validations: PropTypes.oneOfType([
+		PropTypes.func,
+		PropTypes.arrayOf(PropTypes.func)
+	]),
+	component: PropTypes.func
 };
 
 Form.defaultProps = {
