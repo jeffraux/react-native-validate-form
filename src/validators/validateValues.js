@@ -1,5 +1,5 @@
 const validateValues = (items) => {
-	let localItems = [...items];
+  let localItems = [...items];
 
   localItems.forEach(item => {
     if (item.requiresValidation) {
@@ -29,11 +29,11 @@ const validateValues = (items) => {
         }
       }
     } else { // else - it is already valid
-			item.isValid = true;
-		}
+      item.isValid = true;
+    }
   });
   
-	return localItems;
+  return localItems;
 }
 
 export default validateValues;

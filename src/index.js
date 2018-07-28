@@ -11,8 +11,8 @@ import PropTypes from 'prop-types';
 import validateForm from './validators/validateForm';
 
 class Field extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
   }
   
   render() {
@@ -27,9 +27,9 @@ class Field extends Component {
 }
 
 class Form extends Component {
-	constructor(props) {
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+  }
 
 	validate() {
     const { validate, submit, children, failed } = this.props;
@@ -37,16 +37,16 @@ class Form extends Component {
     if (validate) { // validate the form
       let results = validateForm(children);
 
-			if (results.isValid) { // run the submit callback if valid
-				submit();
-			} else { // run the faild callback if invalid
-				failed();
-			}
+    if (results.isValid) { // run the submit callback if valid
+      submit();
+    } else { // run the faild callback if invalid
+      failed();
+    }
 
       return results.fields;
-		} else { // doesn't need validation, run the submit callback
+    } else { // doesn't need validation, run the submit callback
       submit();
-		}
+    }
   }
   
   renderChildren = (element, errors) => {
@@ -65,7 +65,7 @@ class Form extends Component {
     }
   }
 
-	render() {
+  render() {
     const { style, children, errors } = this.props;
 
     const childrenWithProps = Children.map(children, child => {
@@ -73,19 +73,19 @@ class Form extends Component {
       return cloneElement(child, { errors: errors });
     });
 
-		return(
-			<View style={style ? style : {}}>
+    return(
+      <View style={style ? style : {}}>
         {childrenWithProps}
-			</View>
-		);
-	}
+      </View>
+    );
+  }
 }
 
 Form.propTypes = {
-	validate: PropTypes.bool,
-	submit: PropTypes.func,
-	failed: PropTypes.func,
-	errors: PropTypes.array,
+  validate: PropTypes.bool,
+  submit: PropTypes.func,
+  failed: PropTypes.func,
+  errors: PropTypes.array,
   style: PropTypes.any
 };
 
@@ -101,16 +101,16 @@ Field.propTypes = {
 };
 
 Form.defaultProps = {
-	validate: false,
-	submit: () => null,
+  validate: false,
+  submit: () => null,
   failed: () => null,
   errors: [],
-	style: {}
+  style: {}
 }
 
 Field.defaultProps = {
-	required: false,
-	validateFieldName: 'value',
+  required: false,
+  validateFieldName: 'value',
   customStyle: {},
   validations: () => null,
   component: () => null

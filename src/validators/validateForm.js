@@ -38,10 +38,10 @@ const validateForm = (fields) => {
     });
   });
 
-	return {
-		isValid: validateAll(result), // determine if there's an invalid field
-		fields: validatedFields
-	};
+  return {
+    isValid: validateAll(result), // determine if there's an invalid field
+    fields: validatedFields
+  };
 }
 
 export default validateForm;
