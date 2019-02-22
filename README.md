@@ -21,7 +21,7 @@ See [github documentation](https://github.com/jeffraux/react-native-validate-for
 > **See example here: [Validate Form Example](https://github.com/jeffraux/react-native-validate-form/tree/master/src/example)**
 
   ```jsx
-  import React from 'react';
+  import React, { Component } from 'react';
   import { View, Text, TouchableOpacity } from 'react-native';
   import { Form, Field } from 'react-native-validate-form';
 
@@ -30,7 +30,7 @@ See [github documentation](https://github.com/jeffraux/react-native-validate-for
   const required = value => (value ? undefined : 'This is a required field.');
   const email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,5}$/i.test(value) ? 'Please provide a valid email address.' : undefined;
 
-  class MyForm extends React.Component {
+  class MyForm extends Component {
     constructor() {
       super();
 
