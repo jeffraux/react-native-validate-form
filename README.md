@@ -18,6 +18,7 @@ Install react-native-validate-form using NPM with:
 ## Usage
 
 See [github documentation](https://github.com/jeffraux/react-native-validate-form#readme) for more info.
+> **See example here: [Validate Form Example](https://github.com/jeffraux/react-native-validate-form/tree/master/src/example)**
 
   ```jsx
   import React from 'react';
@@ -165,8 +166,6 @@ See [github documentation](https://github.com/jeffraux/react-native-validate-for
       </Form>
     // ...
   ```
-
-> **TODO**: make an example in the repo for better documentation
 
 ## Options
 
