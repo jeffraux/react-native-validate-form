@@ -59,6 +59,7 @@ class ValidateForm extends Component {
             value={this.state.email}
             onChangeText={val => this.setState({ email: val })}
             customStyle={styles.input}
+            placeholder="Enter email here"
           />
         </Form>
 
@@ -85,13 +86,16 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
     paddingHorizontal: 20,
     paddingVertical: 10,
-    borderRadius: 5
+    borderRadius: 5,
+    marginTop: 20
   },
   input: {
-    width: 100,
+    width: 300,
     borderRadius: 5,
     borderColor: 'grey',
     borderWidth: 1,
     padding: 5,
+    margin: 20,
+    marginBottom: 0,
   }
 });

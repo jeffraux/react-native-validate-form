@@ -22,10 +22,10 @@ const InputField = ({
 
       { errors && errors.length > 0 && errors.map((item, index) =>
           item.field === name && item.error ?
-            <Text style={{ color: 'red' }}>
+            <Text key={`${index}`} style={{ color: 'red', marginLeft: 25, marginTop: 5 }}>
               {item.error}
             </Text>
-          : <View />
+          : null
         )
       }
     </View>
